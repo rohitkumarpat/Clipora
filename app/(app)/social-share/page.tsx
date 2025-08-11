@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { CldImage } from 'next-cloudinary';
-import Filetransfer from '@/app/components/file';
+
 
 const socialFormats = {
   "Instagram square (1:1)": {

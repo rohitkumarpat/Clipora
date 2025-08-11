@@ -1,7 +1,6 @@
 import { prismaclient } from '@/lib/db';
 import { auth } from '@clerk/nextjs/server';
 import { v2 as cloudinary } from 'cloudinary';
-import { Quando } from 'next/font/google';
 import { NextRequest, NextResponse } from 'next/server';
 
 cloudinary.config({ 
@@ -14,7 +13,7 @@ interface CloudinaryUploadResult {
   public_id: string;
    bytes   :number,
    duration?:number,
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export async function POST(req: NextRequest) {

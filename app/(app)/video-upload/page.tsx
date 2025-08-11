@@ -1,6 +1,6 @@
 "use client"; 
 
-import Filetransfer from '@/app/components/file';
+
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import axios from 'axios';
