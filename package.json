@@ -7,9 +7,9 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate",
-  "build": "prisma generate && next build",
-  "vercel-build": "prisma generate && next build"
+  "build": "prisma generate && next build"
   },
+  
   "dependencies": {
     "@clerk/nextjs": "^6.28.1",
     "@google/genai": "^1.13.0",

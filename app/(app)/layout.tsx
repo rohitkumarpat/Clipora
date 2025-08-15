@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 
 import { ClerkProvider, SignedIn, SignIn, UserButton } from "@clerk/nextjs";
 import Navbar from "../components/nav";
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const fontSans = {
+  className: 'font-sans',
+  variable: '--font-sans'
+};
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const fontMono = {
+  className: 'font-mono',
+  variable: '--font-mono'
+};
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
   <ClerkProvider>
   <html lang="en" data-theme="dark">
-    <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+    <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
        <header className="fixed z-10 w-full ">
         <Navbar />
         </header>

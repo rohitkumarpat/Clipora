@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// USE THIS INSTEAD:
+const fontSans = {
+  className: 'font-sans', // Will use default system sans font
+  variable: '--font-sans'
+};
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const fontMono = {
+  className: 'font-mono', // Will use default system mono font
+  variable: '--font-mono'
+};
 
 export const metadata: Metadata = {
   title: "Clipora",
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
   <ClerkProvider>
   <html lang="en" data-theme="dark">
-    <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+    <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
      
 
       {children}
