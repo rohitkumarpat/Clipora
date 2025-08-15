@@ -7,7 +7,7 @@ import { Download, Clock, FileUp, FileDown } from "lucide-react";
 import { getCldImageUrl, getCldVideoUrl } from "next-cloudinary";
 import { useCallback, useEffect, useState } from "react";
 import { Video } from "@prisma/client";
-import Image from "next/image";
+
 
 dayjs.extend(relativeTime);
 
@@ -82,7 +82,7 @@ export default function Cardforhome({ video, onDownload }: videoprops) {
     >
       <figure className="relative w-full h-56 bg-black">
         {!ishover || previewerror ? (
-          <Image
+          <img
             src={getthumbnailurl(video.publicid)}
             alt={video.title}
             className="w-full h-full object-cover"
