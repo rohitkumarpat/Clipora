@@ -8,5 +8,5 @@ export default async function HomePage() {
 
   if (!user) return null;
 
-  return < HomeClient user={user} />;
+  return < HomeClient  />;
 }
