@@ -65,16 +65,16 @@
         >
           <div className="flex flex-col justify-start items-center gap-4 w-full max-w-4xl">
           {Array.isArray(videodetail) && videodetail.length > 0 ? (
-         videodetail.map((video) => (
-          <Cardforhome
-          key={video.publicid}
-         video={video}
-           onDownload={(url, title) => {}}
-         />
-        ))
-      ) : (
-       <p>Loading....</p> 
-     )}
+  videodetail.map((video) => (
+    <Cardforhome
+      key={video.publicid}
+      video={video}
+    />
+  ))
+) : (
+  <p>Loading....</p> 
+)}
+
 
           </div>
         </div>
