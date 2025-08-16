@@ -62,6 +62,6 @@
     },
     plugins: [daisyui, require("tailwindcss-animate")],
     daisyui: {
-      themes: ["dark"], 
+      themes: ["dark","light"], 
     },
   };

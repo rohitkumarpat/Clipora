@@ -7,6 +7,6 @@ export default async function HomePage() {
   const user = await check_user();
 
   if (!user) return null;
-
+  
   return < HomeClient  />;
 }

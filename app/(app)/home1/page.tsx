@@ -60,17 +60,22 @@
     return (
       <>
         <div
-          className="min-h-screen flex justify-center items-start gap-10 p-8 bg-black"
-          style={{ marginRight: CHAT_WIDTH }}
+          className="min-h-screen flex justify-center items-start  p-8 "
+          
         >
           <div className="flex flex-col justify-start items-center gap-4 w-full max-w-4xl">
-            {videodetail.map((video) => (
-              <Cardforhome
-                key={video.publicid}
-                video={video}
-                onDownload={(url, title) => {}}
-              />
-            ))}
+          {Array.isArray(videodetail) && videodetail.length > 0 ? (
+         videodetail.map((video) => (
+          <Cardforhome
+          key={video.publicid}
+         video={video}
+           onDownload={(url, title) => {}}
+         />
+        ))
+      ) : (
+       <p>Loading....</p> 
+     )}
+
           </div>
         </div>
 

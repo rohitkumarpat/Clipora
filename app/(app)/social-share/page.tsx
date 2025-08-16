@@ -91,7 +91,7 @@ export default function Socialshare() {
   const format = socialFormats[selectedFormat];
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 py-12">
+    <div className="min-h-screen text-white px-6 py-12">
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold mb-2">Social Media Image Formatter</h1>
         <p className="text-gray-400">Upload, transform, and download your image in various social formats</p>

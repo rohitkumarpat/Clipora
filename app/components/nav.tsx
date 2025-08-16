@@ -1,49 +1,62 @@
-import { SignedIn, UserButton } from "@clerk/nextjs";
+"use client";
 
-export default function Navbar() {
-    return (
-        <div>
-            <div className="navbar bg-black">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-5 w-5 bg-slate-300"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h8m-8 6h16" />
-        </svg>
+import { SignedIn, UserButton } from "@clerk/nextjs";
+import Toggle from "./toggle";
+
+interface Props {
+  darkmode: boolean;
+  setdarkmode: (value: boolean) => void;
+}
+
+export default function Navbar({ darkmode, setdarkmode }: Props) {
+  return (
+    <div className={`navbar ${darkmode ? "bg-black text-white" : "bg-white text-black"}`}>
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </div>
+
+          <ul
+            tabIndex={0}
+            className={`menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow ${
+              darkmode ? "bg-neutral text-neutral-content" : "bg-base-100 text-base-content"
+            }`}
+          >
+            <li><a href="/home1" className="btn btn-ghost">Home</a></li>
+            <li><a href="/video-upload" className="btn btn-ghost">Video upload</a></li>
+            <li><a href="/social-share" className="btn btn-ghost">Image upload</a></li>
+          </ul>
+        </div>
+
+        <div className="flex items-center gap-1 pl-3">
+          <div className="h-7 w-7 rounded-md bg-gradient-to-tr from-fuchsia-600 via-violet-600 to-rose-500" />
+          <a href="/home1" className="text-xl">Clipora</a>
+        </div>
       </div>
-      <ul
-        tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-        <li><a href="/home1" className="text-white btn btn-ghost">Home</a></li>
-        <li>
-          <a href="video-upload" className="text-white btn btn-ghost">Video-upload</a>
-        </li>
-        <li><a href="/social-share" className="text-white btn btn-ghost">Image upload</a></li>
-      </ul>
-    </div>
-    <div className=" flex justify-center items-center gap-1 pl-3">
-        <div className="h-7 w-7 rounded-md bg-gradient-to-tr from-fuchsia-600 via-violet-600 to-rose-500 " />
-    <a href="/home1" className="text-xl text-white ">Clipora</a></div>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 ">
-      <li><a href="/home1" className="text-white btn btn-ghost">Home</a></li>
-      <li>
-          <a href="/video-upload" className="text-white btn btn-ghost">Video Upload</a>
-      </li>
-      <li><a href="/social-share" className="text-white btn btn-ghost">Image Upload</a></li>
-    </ul>
-  </div>
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <li><a href="/home1" className="btn btn-ghost">Home</a></li>
+          <li><a href="/video-upload" className="btn btn-ghost">Video Upload</a></li>
+          <li><a href="/social-share" className="btn btn-ghost">Image Upload</a></li>
+        </ul>
+      </div>
+
+
   <div className="navbar-end">
+
+   <Toggle darkmode={darkmode} setdarkmode={setdarkmode} /> 
+
+
      <div className="flex gap-4">
      <button className="btn btn-neutral btn-circle scale-75">
       <div className="indicator">
@@ -70,6 +83,6 @@ export default function Navbar() {
   </div>
   </div>
 </div>
-        </div>
+        
     )
 }
